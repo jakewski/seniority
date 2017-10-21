@@ -11,6 +11,10 @@ const Jobs = db.define('jobs', {
     },
     helpeeId: {
         type: Sequelize.INTEGER,
+    },
+    inProgress: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
     }
 })
 

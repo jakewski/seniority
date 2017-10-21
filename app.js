@@ -31,13 +31,10 @@ const helperRouter = require("./server/routes/helper");
 const loginRouter = require("./server/routes/login");
 const registerRouter = require("./server/routes/register");
 const authRouter = require("./server/routes/auth");
+const jobsRouter = require("./server/routes/jobs");
+
 const app = express();
 
-//register routes
-app.use("/helpee", helpeeRouter);
-app.use("/helper", helperRouter);
-app.use("/login", loginRouter);
-app.use("/register", registerRouter);
 
 
 app.use(bodyParser.json());
@@ -53,6 +50,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use("/auth", authRouter);
+//register routes
+app.use("/helpee", helpeeRouter);
+app.use("/helper", helperRouter);
+app.use("/login", loginRouter);
+app.use("/register", registerRouter);
+app.use("/jobs", jobsRouter);
 //serve static
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -60,6 +63,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, 'public/register.html'));
 });
+
+app.get('/map', function (req, res, next) {
+    req.user ? res.sendFile(path.join(__dirname, 'public/map.html')) : res.sendFile(path.join(__dirname, 'public/register.html'));
+})
 
 app.use(function(err, req, res, next) {
   console.error(err, err.stack);
