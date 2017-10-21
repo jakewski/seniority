@@ -224,9 +224,9 @@
         $('#cmn-toggle-1').change(
                 function(){
                     if ($(this).is(':checked')) {
-                        axios.get('/helper/available/1')
+                        axios.post('/helper/available/1')
                     }else{
-                        axios.get('/helper/available/0')
+                        axios.post('/helper/available/0')
                     }
                 });
 

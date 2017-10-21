@@ -35,7 +35,7 @@ router.get('/available/:lat/:long', (req, res, next) => {
     })
 })
 
-router.get('/available/:val', (req, res, next) => {
+router.post('/available/:val', (req, res, next) => {
     console.log('hitski')
     Helper.findOne({
         where: {

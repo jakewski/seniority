@@ -4,6 +4,16 @@ module.exports = (io) => {
     
     socket.on('findHelp', helpee => {
       console.log(helpee);
+      socket.emit('gotHelp');
+    })
+
+    socket.on('signedIn', dude => {
+      socket.me = dude;
+      console.log(dude);
+    })
+
+    socket.on('getInfo', () => {
+      socket.emit('gotInfo', socket.me);
     })
     
     socket.on('disconnect', () => {

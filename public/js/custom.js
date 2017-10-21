@@ -1,26 +1,23 @@
 
-
 $(document).ready(function () {
 
     $("#prof").click(function(){
-
-    setTimeout(function(){ $("#myModal").modal(); }, 1000);
+        // socket.emit('getInfo');
+        // socket.on('gotInfo', helper => {
+        //     console.log('help a mf')
+        // })
+        axios.get('/auth/me', (req, res, next) => res.data)
+            .then(me => {
+                axios.get(`/helper/available/${me.location[0]}/${me.location[1]}`)
+                    .then(helpers => {
+                        console.log(helpers);
+                    })
+            })
+        
+        setTimeout(function(){ $("#myModal").modal(); }, 1000);
 
     });
 
-
-$("#reggie").onclick(function() {
-    email = $("#email").val()
-    password = $("#password").val()
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-    });
-
-
-});
 
  $(window).scroll(function(){
     $(".banner-inner, .newsletter-home-text").css("opacity", 1 - $(window).scrollTop() / 350);
