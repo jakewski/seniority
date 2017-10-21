@@ -208,7 +208,6 @@
             let rad = document.querySelector('input[name="log"]:checked').value;
 
             if (rad == "help") {
-                console.log("ayyy");
                 axios.post('auth/login/help', {
                     email: e,
                     password: p,

@@ -1,9 +1,19 @@
 
-
 $(document).ready(function () {
 
     $("#prof").click(function(){
-
+        // socket.emit('getInfo');
+        // socket.on('gotInfo', helper => {
+        //     console.log('help a mf')
+        // })
+        axios.get('/auth/me', (req, res, next) => res.data)
+            .then(me => {
+                axios.get(`/helper/available/${me.location[0]}/${me.location[1]}`)
+                    .then(helpers => {
+                        // console.log(helpers);
+                    })
+            })
+        
     setTimeout(function(){ $("#myModal").modal(); }, 1000);
 
     });
@@ -36,8 +46,6 @@ $("#reggie").onclick(function() {
         // ...
     });
 
-
-});
 
  $(window).scroll(function(){
     $(".banner-inner, .newsletter-home-text").css("opacity", 1 - $(window).scrollTop() / 350);

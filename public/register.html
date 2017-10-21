@@ -71,7 +71,7 @@
                         </div>
                         </div>
                         <div class="row"></div>
-                        <div class="col-sm-7"style="margin-top:-8%">
+                        <div class="col-sm-12"style="margin-top:-8%">
                             <div class="contact-home-form">
                                 <h3>Create a free account</h3>
                                 <div class="assan-contact">
@@ -299,7 +299,7 @@
         <!-- Vimeo video API -->
         <script src="js/headroom.js" type="text/javascript"></script>
         <script>
-             var socket = io()
+            var socket = io();
              window.onload = function() {
                 axios.get('/auth/me', function(req, res, next){
                     let user = res.data;
@@ -307,7 +307,7 @@
                 })
                         .then(user =>
                 {
-                    if(!user)
+                    if(user)
                 {
                     $("#loginLogout").html('Login');
                 }
@@ -349,8 +349,9 @@
                             password: p,
                         })
                             .then(res =>{
+                                socket.emit('signedIn', res.data)
                                 console.log(res.data);
-                                window.location.href = "/helper"
+                                window.location.href = "/helper";
                             })
                        
                     }
@@ -362,6 +363,7 @@
                             password: p,
                         })
                             .then(res =>{
+                                socket.emit('signedIn', res.data)
                                 console.log(res.data);
                                 window.location.href = "/map"
                             })

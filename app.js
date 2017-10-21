@@ -67,7 +67,9 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/map', function (req, res, next) {
-    req.user ? res.sendFile(path.join(__dirname, 'public/map.html')) : res.sendFile(path.join(__dirname, 'public/register.html'));
+    if(req.user && !req.user.rating) 
+        res.sendFile(path.join(__dirname, 'public/map.html'))
+    else res.sendFile(path.join(__dirname, 'public/register.html'));
 })
 
 app.use(function(err, req, res, next) {
