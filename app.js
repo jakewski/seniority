@@ -21,6 +21,8 @@ app.use('/register', registerRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, './index.html'));
 });
