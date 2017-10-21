@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="512a6c4f-0e71-4978-bb5b-49b6712a3720" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/helperInfo.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/requestSend.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/helper.js" afterPath="$PROJECT_DIR$/models/helper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/getHelp.html" afterPath="$PROJECT_DIR$/public/getHelp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/login.html" afterPath="$PROJECT_DIR$/public/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/register.html" afterPath="$PROJECT_DIR$/public/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/auth.js" afterPath="$PROJECT_DIR$/server/routes/auth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/register.js" afterPath="$PROJECT_DIR$/server/routes/register.js" />
     </list>
     <ignored path="seniority.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="209" column="17" selection-start-line="209" selection-start-column="17" selection-end-line="209" selection-end-column="17" />
+            <state relative-caret-position="3015">
+              <caret line="201" column="17" selection-start-line="201" selection-start-column="17" selection-end-line="201" selection-end-column="17" />
               <folding>
                 <element signature="n#style#0;n#label#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -46,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="205" column="51" selection-start-line="205" selection-start-column="51" selection-end-line="205" selection-end-column="51" />
+            <state relative-caret-position="60">
+              <caret line="159" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="227" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#label#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -326,12 +318,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1508578044244</updated>
-      <workItem from="1508578047094" duration="20410000" />
+      <workItem from="1508578047094" duration="21092000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20410000" />
+    <option name="totallyTimeSpent" value="21092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="0" width="1231" height="796" extended-state="0" />
@@ -465,16 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="205" column="51" selection-start-line="205" selection-start-column="51" selection-end-line="205" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/routes/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -485,11 +467,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="209" column="17" selection-start-line="209" selection-start-column="17" selection-end-line="209" selection-end-column="17" />
+        <state relative-caret-position="3015">
+          <caret line="201" column="17" selection-start-line="201" selection-start-column="17" selection-end-line="201" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#label#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="159" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="227" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
