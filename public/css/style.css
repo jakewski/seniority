@@ -712,6 +712,7 @@ hr.separator {
 
 .contact-home-form {
   background-color: rgba(255, 255, 255, 0.95);
+  width:45%;
   padding: 25px 15px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
