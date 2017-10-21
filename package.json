@@ -8,11 +8,13 @@
     "halp": "nodemon app.js"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
+    "firebase": "^4.6.0",
     "pg": "^5.1.0",
     "sequelize": "^3.23.3"
   },
-  "author": "Jakub, Art, Collin",
+  "author": "Jakub, Art, Colin",
   "license": "ISC"
 }

@@ -1,6 +1,19 @@
+
+
 $(document).ready(function () {
 
+$("#reggie").click(function() {
+    email = $("#email").val()
+    password = $("#password").val()
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
 
+
+});
 
  $(window).scroll(function(){
     $(".banner-inner, .newsletter-home-text").css("opacity", 1 - $(window).scrollTop() / 350);
