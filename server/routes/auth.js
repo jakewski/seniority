@@ -2,7 +2,6 @@ const router = require("express").Router();
 const Helper = require("../../models/helper");
 const Helpee = require("../../models/helpee");
 
-
 router.post("/login/:flag", (req, res, next) => {
   const User = req.params.flag === 'help' ? Helper : Helpee;
   User.findOne({ where: { email: req.body.email } })

@@ -3,8 +3,12 @@ const db = require('./_db');
 const crypto = require('crypto')
 
 const Helpee = db.define('helpee', {
+    name: {
+        type: Sequelize.STRING,
+    },
     email: {
         type: Sequelize.STRING,
+        allowNull: false,
     },
     salt: {
         type: Sequelize.STRING,
@@ -12,14 +16,9 @@ const Helpee = db.define('helpee', {
     password: {
         type: Sequelize.STRING,
     },
-    help: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-    },
     location: {
         type: Sequelize.ARRAY(Sequelize.FLOAT),
     }
-
 });
 
 Helpee.prototype.correctPassword = function (candidatePwd) {
