@@ -30,7 +30,6 @@ router.post("/signup/:flag", (req, res, next) => {
 });
 
 router.post("/logout", (req, res) => {
-  console.log("aa");
     req.logout();
     res.sendStatus(200);
 });
