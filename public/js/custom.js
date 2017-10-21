@@ -1,13 +1,40 @@
 
-
 $(document).ready(function () {
 
     $("#prof").click(function(){
-
+        // socket.emit('getInfo');
+        // socket.on('gotInfo', helper => {
+        //     console.log('help a mf')
+        // })
+        axios.get('/auth/me', (req, res, next) => res.data)
+            .then(me => {
+                axios.get(`/helper/available/${me.location[0]}/${me.location[1]}`)
+                    .then(helpers => {
+                        // console.log(helpers);
+                    })
+            })
+        
     setTimeout(function(){ $("#myModal").modal(); }, 1000);
 
     });
 
+});
+        $('#characterLeft').text('140 characters left');
+        $('#message').keydown(function () {
+            var max = 140;
+            var len = $(this).val().length;
+            if (len >= max) {
+                $('#characterLeft').text('You have reached the limit');
+                $('#characterLeft').addClass('red');
+                $('#btnSubmit').addClass('disabled');
+            }
+            else {
+                var ch = max - len;
+                $('#characterLeft').text(ch + ' characters left');
+                $('#btnSubmit').removeClass('disabled');
+                $('#characterLeft').removeClass('red');
+            }
+        });
 
 $("#reggie").onclick(function() {
     email = $("#email").val()
@@ -19,8 +46,6 @@ $("#reggie").onclick(function() {
         // ...
     });
 
-
-});
 
  $(window).scroll(function(){
     $(".banner-inner, .newsletter-home-text").css("opacity", 1 - $(window).scrollTop() / 350);

@@ -35,7 +35,8 @@ router.get('/available/:lat/:long', (req, res, next) => {
     })
 })
 
-router.get('/available', (req, res, next) => {
+router.post('/available/:val', (req, res, next) => {
+    console.log('hitski')
     Helper.findOne({
         where: {
             id: req.user.id,
@@ -43,7 +44,7 @@ router.get('/available', (req, res, next) => {
     })
     .then(guy => {
         guy.update({
-            availability: true,
+            availability: req.params.val === '1',
         })
         .then(() => {
             res.sendStatus(200);

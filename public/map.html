@@ -70,14 +70,11 @@
 <section id="home" class="home-contact">
     <div class="container">
         <div class="col-md-12">
-            <h3 class="text-center">Nearby Help</h3>
-            <div class="map" id="map"></div>
-            <div id='prof' class="btn btn-danger" type="button" class="btn btn-info btn-lg"
-                 style="border-radius: 25px; margin-left: 45%; width: 20%; margin-top: 10px; height: 60px; line-height: 55px; font-size: 20px ">
-                Find Help
-            </div>
-        </div>
-
+   </div>
+                    <h3 class="text-center">Nearby Help</h3>
+                <div class="map" id="map"></div>
+            <div id="prof" class="btn btn-danger" type="button" class="btn btn-info btn-lg"  style="border-radius: 25px; margin-left: 45%; width: 20%; margin-top: 10px; height: 60px; line-height: 55px; font-size: 20px "> Find Help </div>
+  </div>
     </div>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -86,30 +83,47 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">NAME OF CHILD</h4>
+                    <h4 class="modal-title">Jane Doe</h4>
                 </div>
                 <div class="modal-body">
-                    <h2>Profile</h2>
+                    <h2 class="text-center">Profile</h2>
 
-                    <div>
-                        <img src="images/prof.jpg" style="border-radius: 50%; height: 150px; width: 150px;">
+
+                    <div class="text-center">
+                    <img src="images/prof.jpg" style="border-radius: 50%; height: 150px; width: 150px;">
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                style="margin-top: 10px; margin-left: 5%">Hire Help
-                        </button>
+
+                    <div class="container text-center " style="margin-left: 3%">
+                        <div class="col-md-5">
+                            <div style="margin-top: 10px; margin-left: 6%">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <div class="form-area" style="margin-left: 6%;">
+
+                                <form role="form">
+                                    <br style="clear:both">
+                                    <h3 style="margin-bottom: 25px; text-align: center;">Help</h3>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" type="textarea" id="message" placeholder="Short Description of Help needed" maxlength="140" rows="7"></textarea>
+                                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
+                                    </div>
+
+                                    <button type="button" id="submit" name="submit" class="btn btn-danger pull-right"data-dismiss="modal">Get Help</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    <div style="margin-top: 10px; margin-left: 6%">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+
             </div>
 
         </div>
@@ -204,7 +218,8 @@
 <script src="js/smoothscroll.js"></script>
 <script src="bower_components/wow/dist/wow.min.js"></script>
 <script src="bower_components/lightbox2/dist/js/lightbox.min.js" type="text/javascript"></script>
-
+<script src="/socket.io/socket.io.js"></script>
+<script src="socket_utils.js" type="text/javascript"></script>
 <script src="js/modernizr.custom.97074.js" type="text/javascript"></script>
 <script src="js/parallax.min.js" type="text/javascript"></script>
 <script src="js/custom.js" type="text/javascript"></script>
