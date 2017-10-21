@@ -29,34 +29,39 @@
 </head>
 
 <body data-spy="scroll">
-    <!-- Static navbar -->
-    <header class="navbar navbar-default header-v2 navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header scroll-to">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+<!-- Static navbar -->
+<header class="navbar navbar-default header-v2 navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header scroll-to">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" href="register">Seniority</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-
-                <ul class="nav scroll-to navbar-nav">
-                    <li class="active"><a href="register">home</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right socials">
-                    <li><a href="#"><i class="icon-facebook"></i></a></li>
-                    <li><a href="#"><i class="icon-twitter"></i></a></li>
-                    <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
+            <a class="navbar-brand" href="register">Seniority</a>
         </div>
-        <!--/.container-fluid -->
-    </header>
-    <!--navigation end here-->
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <ul class="nav scroll-to navbar-nav">
+                <li><a href="/register">home</a></li>
+                <li><a href="/map">Find Help</a></li>
+                <li><a href="/help">Help</a></li>
+                <li>
+                    <a></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right socials">
+                <li><a href="#"><i class="icon-facebook"></i></a></li>
+                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                <li><a href="#"><i class="icon-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+</header>
+<!--navigation end here-->
 
 
 <section id="home" class="home-contact">
@@ -78,11 +83,15 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-sm-12 margin-b-20">
-                                            <input type="text" id="email" class="form-control" placeholder="Email Address...." />
+                                            <input type="text" id="email" class="form-control"
+                                                   placeholder="Email Address...."/>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12">
-                                        <input id="password" type="password" class="form-control" placeholder="Password...."></input>
+                                    <div class="row">
+                                        <div class="col-sm-12 margin-b-20">
+                                            <input id="password" type="password" class="form-control"
+                                                   placeholder="Password...."/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -94,77 +103,80 @@
                                 <div class="row">
                                     <p class="woah text-center">
                                         Login as...
-                                        <label><input type="radio" name="log" value="help" checked><span>helper</span></label>
+                                        <label><input type="radio" name="log" value="help"
+                                                      checked><span>helper</span></label>
                                         <label><input type="radio" name="log" value="no"><span> helpee</span></label>
                                     </p>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12 text-center">
-                                        <button type="button" onclick="Helper()" name="submit" class="btn btn-lg btn-skin btn-radius margin-b-20">Login</button>
-                                        <p style="margin-top:10px; margin-bottom: -10px;">Not a member? Click <a href="/register">here</a> to register!</p>
+                                        <button type="button" onclick="Helper()" name="submit"
+                                                class="btn btn-lg btn-skin btn-radius margin-b-20">Login
+                                        </button>
+                                        <p style="margin-top:10px; margin-bottom: -10px;">Not a member? Click <a
+                                                href="/register">here</a> to register!</p>
                                     </div>
+                                </div>
+
+
                             </div>
-                           
-                          
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+</section>
 
-    <!--footer start-->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 margin-b-30">
-                    <h2>Seniority</h2>
-                    <p>
-                        A simple connection between the ones who need help, and that ones that want to help.
-                    </p>
-                    <div class="space-20"></div>
-                </div>
-                <div class="col-sm-4 margin-b-30">
-                    <h2>Contact us</h2>
-                    <ul class="list-unstyled clearfix">
-                        <li class="clearfix">
-                            <i class="fa fa-map-marker"></i>
-                            <span>777 W Harrisburg Pike, Middletown, PA 17057</span>
-                        </li>
-                        <li class="clearfix">
-                            <i class="fa fa-envelope-o"></i>
-                            <span><a href='#'>seniorityPSH@gmail.com</a></span>
-                        </li>
-                        <li class="clearfix">
-                            <i class="fa fa-phone"></i>
-                            <span>(717)-948-6000</span>
-                        </li>
-                    </ul>
-                </div>
-                <!--col4 end-->
-                <div class="col-sm-4 margin-b-30">
-                    <h2>Follow us</h2>
-                    <ul class="list-inline clearfix">
-                        <li><a href='#'><i class="fa fa-facebook-official"></i></a></li>
-                        <li><a href='#'><i class="fa fa-twitter"></i></a></li>
-                        <li><a href='#'><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href='#'><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href='#'><i class="fa fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <!--col4 end-->
+<!--footer start-->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 margin-b-30">
+                <h2>Seniority</h2>
+                <p>
+                    A simple connection between the ones who need help, and that ones that want to help.
+                </p>
+                <div class="space-20"></div>
             </div>
-            <!--row end-->
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <div class="footer-bottom">
-                        <ul class="list-inline">
-                            <li><a href='#'>Home</a></li>
-                            <li><a href='#'>Terms</a></li>
-                            <li><a href='#'>Privacy</a></li>
-                        </ul>
-                        <span>&copy; Copyright 2017</span>
-                    </div>
+            <div class="col-sm-4 margin-b-30">
+                <h2>Contact us</h2>
+                <ul class="list-unstyled clearfix">
+                    <li class="clearfix">
+                        <i class="fa fa-map-marker"></i>
+                        <span>777 W Harrisburg Pike, Middletown, PA 17057</span>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fa fa-envelope-o"></i>
+                        <span><a href='#'>seniorityPSH@gmail.com</a></span>
+                    </li>
+                    <li class="clearfix">
+                        <i class="fa fa-phone"></i>
+                        <span>(717)-948-6000</span>
+                    </li>
+                </ul>
+            </div>
+            <!--col4 end-->
+            <div class="col-sm-4 margin-b-30">
+                <h2>Follow us</h2>
+                <ul class="list-inline clearfix">
+                    <li><a href='#'><i class="fa fa-facebook-official"></i></a></li>
+                    <li><a href='#'><i class="fa fa-twitter"></i></a></li>
+                    <li><a href='#'><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href='#'><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href='#'><i class="fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <!--col4 end-->
+        </div>
+        <!--row end-->
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="footer-bottom">
+                    <ul class="list-inline">
+                        <li><a href='#'>Home</a></li>
+                        <li><a href='#'>Terms</a></li>
+                        <li><a href='#'>Privacy</a></li>
+                    </ul>
+                    <span>&copy; Copyright 2017</span>
                 </div>
             </div>
         </div>
@@ -216,21 +228,21 @@
                         console.log(res.data);
                         window.location.href = "/helper"
                     })
-            }
-            else {
-                axios.post('auth/login/nothelp', {
-                    email: e,
-                    password: p,
-                })
+        }
+        else {
+            axios.post('auth/login/nothelp', {
+                email: e,
+                password: p,
+            })
                     .then(res => {
                         console.log(res.data);
                         window.location.href = "/map"
                     })
 
-            }
-
         }
-    </script>
+
+    }
+</script>
 </body>
 
 </html>

@@ -48,10 +48,12 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav scroll-to navbar-nav">
-                <li ><a href="register">home</a></li>
-                <li class="active"><a href="map">Find Help</a></li>
-                <li><a href="help">Help</a></li>
-                <li><a href="login">Login</a></li>
+                <li><a href="/register">home</a></li>
+                <li><a href="/map">Find Help</a></li>
+                <li><a href="/help">Help</a></li>
+                <li>
+                    <a></a>
+                </li>
 
 
             </ul>
@@ -68,12 +70,12 @@
 <section id="home" class="home-contact">
     <div class="container">
         <div class="col-md-12">
+   </div>
                     <h3 class="text-center">Nearby Help</h3>
                 <div class="map" id="map"></div>
             <div id="prof" class="btn btn-danger" type="button" class="btn btn-info btn-lg"  style="border-radius: 25px; margin-left: 45%; width: 20%; margin-top: 10px; height: 60px; line-height: 55px; font-size: 20px "> Find Help </div>
-                            </div>
-
-                        </div>
+  </div>
+    </div>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -85,6 +87,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 class="text-center">Profile</h2>
+
 
                     <div class="text-center">
                     <img src="images/prof.jpg" style="border-radius: 50%; height: 150px; width: 150px;">
@@ -188,7 +191,7 @@
     var map, infoWindow;
 
     function initMap() {
-        var uluru = {lat:  39.9625980, lng: -76.7277450};
+        var uluru = {lat: 39.9625980, lng: -76.7277450};
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
             center: uluru
@@ -227,12 +230,12 @@
 <!-- Vimeo video API -->
 <script src="js/headroom.js" type="text/javascript"></script>
 <script>
-    $(window).on('load',function(){
+    $(window).on('load', function () {
         axios.get('/helper/available/39.9625980/-76.7277450').then(function (response) {
             console.log(response);
-            response.data.forEach(function(geo){
+            response.data.forEach(function (geo) {
                 marker = new google.maps.Marker({
-                    position: {lat:geo.location[0] , lng: geo.location[1]},
+                    position: {lat: geo.location[0], lng: geo.location[1]},
                     map: map,
                     icon: './images/grey.ico'
                 });
@@ -241,17 +244,24 @@
         });
     });
 
+    window.onload = function () {
+        axios.get('/auth/me', {}).then(data => {
+            if (data == undefined)
+                $("#loginLogout").html('Login');
+            else
+                $("#loginLogout").html('Logout');
+        });
+    };
+
+    function logMeOut() {
+        let stat = document.getElementById("loginLogout").innerHTML;
+        if (stat == "Logout") {
+            axios.post('/auth/logout');
+            $("#loginLogout").html('Login');
+        }
+        window.location.href = "/login"
+    }
+
 </script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-
-
-</head>
-<body>
-
 </body>
 </html>
