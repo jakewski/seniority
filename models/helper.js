@@ -32,6 +32,7 @@ const Helper = db.define('helper', {
     },
     rating: {
         type: Sequelize.FLOAT,
+        defaultValue: 1,
     },
     price: {
         type: Sequelize.FLOAT,

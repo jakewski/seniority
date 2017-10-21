@@ -6,6 +6,8 @@ const passport = require("passport");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./models");
 const sessionStore = new SequelizeStore({ db });
+const socketio = require('socket.io')
+
 
 const PORT = process.env.PORT || 8080;
 
@@ -77,6 +79,8 @@ sessionStore.sync()
     .then(() => {
         db.sync({ force: true }).then(() => {
             const server = app.listen(PORT, () => console.log(`Helping seniors on port ${PORT}`));
+            const io = socketio(server)
+            require('./server/socket')(io)
         });
     })
 
