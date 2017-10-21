@@ -9,7 +9,6 @@ router.post("/login/:flag", (req, res, next) => {
       if (!user) {
         res.status(401).send("User not found");
       } else if (!user.correctPassword(req.body.password)) {
-        console.log('fucked')
         res.status(401).send("Incorrect password");
       } else {
         req.login(user, err => (err ? next(err) : res.json(user)));
@@ -31,8 +30,9 @@ router.post("/signup/:flag", (req, res, next) => {
 });
 
 router.post("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
+  console.log("aa");
+    req.logout();
+    res.sendStatus(200);
 });
 
 router.get("/me", (req, res) => {

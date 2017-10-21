@@ -5,7 +5,6 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next)=>{
-    console.log('hit')
     res.sendfile('public/register.html')
 
 })
