@@ -6,6 +6,9 @@ const Helper = db.define('helper', {
     email: {
         type: Sequelize.STRING,
     },
+    name: {
+        type: Sequelize.STRING,
+    },
     salt: {
         type: Sequelize.STRING,
     },
