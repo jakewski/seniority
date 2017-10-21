@@ -42,7 +42,10 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav scroll-to navbar-nav">
-                <li class="active"><a href="register">home</a></li>
+                <li class="active"><a href="home">home</a></li>
+                <li><a href="/map">Find Help</a></li>
+                <li><a href="/help">Help</a></li>
+                <li><a id="loginLogout" href="/login"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right socials">
                 <li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -89,7 +92,7 @@
                             <div class="row">
                                 <p class="woah text-center">
                                     Login as...
-                                    <label><input type="radio" name="log" value="help" checked><span>helper</span></label>
+                                    <label style="padding-right:2px;"><input type="radio" name="log" value="help" checked><span>helper</span></label>
                                     <label><input type="radio" name="log" value="no"><span> helpee</span></label>
                                 </p>
                             </div>
@@ -180,6 +183,21 @@
 <!-- Vimeo video API -->
 <script src="js/headroom.js" type="text/javascript"></script>
 <script>
+
+    window.onload = function() {
+        axios.get('/auth/me', function(req, res, next){
+            let user = res.data;
+            return user;
+        })
+                .then(user =>
+        {
+            if(!user)
+                $("#loginLogout").html('Login');
+            else
+                $("#loginLogout").html('Logout');
+        });
+    };
+
     function Helper()
     {
         let e = $("#email").val();
@@ -188,7 +206,6 @@
 
         if(rad == "help")
         {
-            console.log("ayyy");
             axios.post('auth/login/help', {
                 email: e,
                 password: p,
