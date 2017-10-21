@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +29,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
     <![endif]-->
 </head>
 <body data-spy="scroll">
@@ -36,12 +43,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index-contact.html">Seniority</a>
+            <a class="navbar-brand" href="index.html">Seniority</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav scroll-to navbar-nav">
-                <li class="active"><a href="/seniority/public/index-contact.html">home</a></li>
+                <li class="active"><a href="register.html">home</a></li>
+                <li><a href="find_help">Find Help</a></li>
+                <li><a href="help">Help</a></li>
+                <li><a href="login">Login</a></li>
 
 
             </ul>
@@ -57,77 +67,42 @@
 
 <section id="home" class="home-contact">
     <div class="container">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="row">
-                <div class="col-sm-7">
-                    <div class="contact-home-text">
-                        <h4>Find local help</h4>
-                        <h1></h1>
-                        <p>Fast and simple help for seniors</p>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="contact-home-form">
-                        <h3>Login</h3>
-                        <form method="post" action="#" class="assan-contact">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="col-sm-12 margin-b-20">
-                                            <input type="text" name="email" class="form-control" placeholder="Email Address...." />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <input name="password" type="password" class="form-control" placeholder="Password...."></input>
-                                </div>
+        <div class="col-md-12">
+                    <h3 class="text-center">Nearby Help</h3>
+                        <div id="map"></div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12 text-center">
-                                    <div class="data-status animated fadeInDown"></div> <!-- data submit status -->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 text-center">
-                                    <button type="submit" name="submit" class="btn btn-lg btn-skin btn-radius margin-b-20">Login</button>
-                                    <a href = '/seniority/public/index-contact.html'>Not a member? Click here to register</a>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        </div>
 </section>
 
 <!--footer start-->
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 margin-b-5">
-
-                <a href='https://wrapbootstrap.com/theme/assan-multi-purpose-8-themes-in-1-WB05F069P' target="_blank" class="btn btn-skin btn-radius btn-lg">Get Assan Kit Today!</a>
+            <div class="col-sm-4 margin-b-30">
+                <h2>Seniority</h2>
+                <p>
+                    A simple connection between the ones who need help, and that ones that want to help.
+                </p>
+                <div class="space-20"></div>
             </div>
-            <div class="col-sm-4 margin-b-5">
+            <div class="col-sm-4 margin-b-30">
                 <h2>Contact us</h2>
                 <ul class="list-unstyled clearfix">
                     <li class="clearfix">
                         <i class="fa fa-map-marker"></i>
-                        <span>124, Munna wali, Lalchandpura, Johtwara, 302012</span>
+                        <span>777 W Harrisburg Pike, Middletown, PA 17057</span>
                     </li>
                     <li class="clearfix">
                         <i class="fa fa-envelope-o"></i>
-                        <span><a href='#'>mylifedesign143@gmail.com</a></span>
+                        <span><a href='#'>seniorityPSH@gmail.com</a></span>
                     </li>
                     <li class="clearfix">
                         <i class="fa fa-phone"></i>
-                        <span>+01 1234 434-345</span>
+                        <span>(717)-948-6000</span>
                     </li>
                 </ul>
             </div><!--col4 end-->
-            <div class="col-sm-4 margin-b-5">
+            <div class="col-sm-4 margin-b-30">
                 <h2>Follow us</h2>
                 <ul class="list-inline clearfix">
                     <li><a href='#'><i class="fa fa-facebook-official"></i></a></li>
@@ -143,12 +118,10 @@
                 <div class="footer-bottom">
                     <ul class="list-inline">
                         <li><a href='#'>Home</a></li>
-                        <li><a href='#'>News</a></li>
-                        <li><a href='#'>Help</a></li>
                         <li><a href='#'>Terms</a></li>
                         <li><a href='#'>Privacy</a></li>
                     </ul>
-                    <span>&copy; Copyright 2017. Orginal Design by Design_mylife</span>
+                    <span>&copy; Copyright 2017</span>
                 </div>
             </div>
         </div>
@@ -156,6 +129,62 @@
 </footer>
 <!--footer end-->
 
+<script>
+    var map, infoWindow;
+
+    function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: uluru
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+        });
+        marker = new google.maps.Marker({
+            position: {lat: -26.363, lng: 132.044},
+            map: map
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map
+                });
+
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            console.log('fucked up')
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+    }
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZn-yqv4oMvIhcaBTqVu9QinJwtTpVMDk&callback=initMap">
+</script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="js/jquery-migrate.min.js" type="text/javascript"></script>
 <script src="js/jquery.easing.1.3.min.js" type="text/javascript"></script>
@@ -175,12 +204,26 @@
 <!-- Vimeo video API -->
 <script src="js/headroom.js" type="text/javascript"></script>
 <script>
-    // grab an element
-    var myElement = document.querySelector("header");
-    // construct an instance of Headroom, passing the element
-    var headroom = new Headroom(myElement);
-    // initialise
-    headroom.init();
+    function checkPasswords()
+    {
+        let one = $("#password").val();
+        let two = $("#vpassword").val();
+        if (one != null && two != null && one != two)
+            $("#chkpass").html("Passwords do not match! Try again.").css("color", "red");
+        else
+            $("#chkpass").html("Successfully registered!").css("color", "green");
+    }
 </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+
 </body>
 </html>
