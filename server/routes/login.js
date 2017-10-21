@@ -7,6 +7,4 @@ router.get('/', (req, res, next) => {
     res.sendfile('public/login.html')
 })
 
-
-
 module.exports = router;
