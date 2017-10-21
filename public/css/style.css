@@ -659,6 +659,9 @@ hr.separator {
   border: 0px;
   height: 47px;
 }
+.checked {
+  color: orange;
+}
 .home-newsletter .error {
   border-color: #b92c28;
   color: #b92c28;
@@ -667,7 +670,9 @@ hr.separator {
   border-color: #5cb85c;
   color: #5cb85c;
 }
-
+.modal-body{
+  height: 500px;
+}
 /****banner contact form**/
 .home-contact {
   background: url(../images/original.jpg) no-repeat;

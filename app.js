@@ -29,7 +29,7 @@ passport.deserializeUser((id, done) =>
 const helpeeRouter = require("./server/routes/helpee");
 const helperRouter = require("./server/routes/helper");
 const loginRouter = require("./server/routes/login");
-const registerRouter = require("./server/routes/helpee");
+const registerRouter = require("./server/routes/register");
 const authRouter = require("./server/routes/auth");
 const app = express();
 
