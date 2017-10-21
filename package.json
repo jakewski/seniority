@@ -1,0 +1,18 @@
+{
+  "name": "ycphack",
+  "version": "1.0.0",
+  "description": "uber for people who need help",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "halp": "nodemon app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "pg": "^5.1.0",
+    "sequelize": "^3.23.3"
+  },
+  "author": "Jakub, Art, Collin",
+  "license": "ISC"
+}
