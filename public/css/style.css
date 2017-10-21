@@ -719,10 +719,11 @@ hr.separator {
   min-height: 45px;
 }
 .contact-home-form .btn {
-  width: 100%;
-  display: block;
-}
 
+}
+.btn-group{
+  margin-left: 30%;
+}
 #features {
   padding: 80px 0;
   background-color: #fff;
