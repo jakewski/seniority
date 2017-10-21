@@ -3,14 +3,19 @@ const db = require('./_db');
 const crypto = require('crypto')
 
 const Helper = db.define('helper', {
+    name: {
+        type: Sequelize.STRING,
+    },
     email: {
         type: Sequelize.STRING,
+        allowNull: false,
     },
     salt: {
         type: Sequelize.STRING,
     },
     password: {
         type: Sequelize.STRING,
+        allowNull: false,
     },
     availability: {
         type: Sequelize.BOOLEAN,
@@ -33,7 +38,7 @@ const Helper = db.define('helper', {
     },
     photo: {
         //url or path name?
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
     },
 });
 

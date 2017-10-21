@@ -59,7 +59,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/', function (req, res, next) {
     res.sendFile(path.join(__dirname, 'public/register.html'));
-
 });
 
 app.use(function(err, req, res, next) {
