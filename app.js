@@ -21,8 +21,11 @@ app.use('/register', registerRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//serve static
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', function (req, res, next) {
-    res.sendFile(path.join(__dirname, './index.html'));
+    res.sendFile(path.join(__dirname, 'public/index-contact.html'));
 });
 
 app.use(function (err, req, res, next) {
