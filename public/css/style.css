@@ -670,13 +670,14 @@ hr.separator {
 
 /****banner contact form**/
 .home-contact {
-  background: url(../images/bg-2.jpg) no-repeat;
+  background: url(../images/ku-xlarge.jpg) no-repeat;
   background-size: cover;
-  -webkit-background-size: cover;
+  -webkit-background-size: cover ;
   -moz-background-size: cover;
   background-attachment: fixed;
   padding-top: 150px;
   padding-bottom: 100px;
+  color: black !important;
 }
 .home-contact .contact-home-text {
   padding: 100px 0;
@@ -700,6 +701,7 @@ hr.separator {
 .contact-home-form {
   background-color: rgba(255, 255, 255, 0.95);
   padding: 25px 15px;
+  margin-right: 20%;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
