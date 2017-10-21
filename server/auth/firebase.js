@@ -3,7 +3,6 @@
  */
 const firebase = require("firebase");
 
-
 function makeAccount(email, password) {
 
 };

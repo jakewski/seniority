@@ -7,10 +7,10 @@ const { makeAccount } = require('../auth/firebase');
 router.get('/', (req, res, next) => {
 
 })
-router.post('/', (req, res, next) => {
-    let email = req.body.email
-    let password = req.body.password
-    makeAccount(email, password)
+// router.post('/', (req, res, next) => {
+//     let email = req.body.email
+//     let password = req.body.password
+//     makeAccount(email, password)
 
-})
+// })
 module.exports = router;
