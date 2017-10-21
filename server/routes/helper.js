@@ -13,10 +13,9 @@ function checkDist(lat1, long1, lat2, long2){
 }
 
 router.get('/', (req, res, next) => {
-    Helper.findAll()
-        .then(helpers => {
-            res.send(helpers);
-        })
+    console.log(typeof req.user)
+    if(req.user && req.user.rating) res.sendfile('public/helper.html')
+    else res.redirect('/')
 })
 
 router.get('/available/:lat/:long', (req, res, next) => {
