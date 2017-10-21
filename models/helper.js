@@ -10,9 +10,6 @@ const Helper = db.define('helper', {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    name: {
-        type: Sequelize.STRING,
-    },
     salt: {
         type: Sequelize.STRING,
     },
