@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     });
 
-
+});
         $('#characterLeft').text('140 characters left');
         $('#message').keydown(function () {
             var max = 140;
