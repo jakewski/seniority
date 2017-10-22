@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12 text-center">
-                                        <button type="button" onclick="Helper()" name="submit" class="btn btn-lg btn-skin btn-radius margin-b-20">Login</button>
+                                        <button type="button" onclick="Helper()" class="btn btn-lg btn-skin btn-radius margin-b-20">Login</button>
                                         <p style="margin-top:10px; margin-bottom: -10px;">Not a member? Click <a href="/register">here</a> to register!</p>
                                     </div>
                             </div>
@@ -208,6 +208,7 @@
             let rad = document.querySelector('input[name="log"]:checked').value;
 
             if (rad == "help") {
+                console.log(e, p)
                 axios.post('auth/login/help', {
                     email: e,
                     password: p,

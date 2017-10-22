@@ -6,7 +6,6 @@ const passport = require("passport");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./models");
 const sessionStore = new SequelizeStore({ db });
-const socketio = require('socket.io')
 
 
 const PORT = process.env.PORT || 8080;
@@ -67,9 +66,8 @@ app.get('/', function (req, res, next) {
 });
 
 app.get('/map', function (req, res, next) {
-    if(req.user && !req.user.rating) 
-        res.sendFile(path.join(__dirname, 'public/map.html'))
-    else res.sendFile(path.join(__dirname, 'public/register.html'));
+    console.log('yeeee', req.user);
+    req.user ? res.sendFile(path.join(__dirname, 'public/map.html')) : res.sendFile(path.join(__dirname, 'public/register.html'));
 })
 
 app.use(function(err, req, res, next) {
@@ -81,10 +79,8 @@ sessionStore.sync()
     .then(() => {
         db.sync({ force: true }).then(() => {
             const server = app.listen(PORT, () => console.log(`Helping seniors on port ${PORT}`));
-            const io = socketio(server)
-            require('./server/socket')(io)
+
         });
     })
-
 
 module.exports = app;

@@ -204,7 +204,7 @@
 
 </script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZn-yqv4oMvIhcaBTqVu9QinJwtTpVMDk&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM7WrJM-dfN-Bn_XztlaTaKRnVciwFfMo&callback=initMap">
 </script>
 <script src="bower_components/axios/dist/axios.js"></script>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -215,8 +215,6 @@
 <script src="js/smoothscroll.js"></script>
 <script src="bower_components/wow/dist/wow.min.js"></script>
 <script src="bower_components/lightbox2/dist/js/lightbox.min.js" type="text/javascript"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="socket_utils.js" type="text/javascript"></script>
 <script src="js/modernizr.custom.97074.js" type="text/javascript"></script>
 <script src="js/parallax.min.js" type="text/javascript"></script>
 <script src="js/custom.js" type="text/javascript"></script>
@@ -228,17 +226,17 @@
 <script src="js/headroom.js" type="text/javascript"></script>
 <script>
     $(window).on('load',function(){
-        axios.get('/helper/available/39.9625980/-76.7277450').then(function (response) {
-            console.log(response);
-            response.data.forEach(function(geo){
+        console.log('HIIIIT')
+        axios.get('/helper/available/39.9625980/-76.7277450', function (req, res, next){
+            
+            let helpskis = res.data.forEach(function(geo){
                 marker = new google.maps.Marker({
                     position: {lat:geo.location[0] , lng: geo.location[1]},
                     map: map,
                     icon: './images/grey.ico'
                 });
-
             });
-        });
+        })
     });
 
 </script>
