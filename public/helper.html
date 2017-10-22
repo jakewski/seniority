@@ -90,7 +90,7 @@
                     <h4 class="modal-title">Job Available</h4>
                 </div>
                 <div class="modal-body">
-                    <h2>Profile</h2>
+                    <h2 id="helpeeName"></h2>
 
                     <div>
                         <img src="images/happy-old-man.jpg" style="border-radius: 50%; height: 150px; width: 150px;">
@@ -103,6 +103,7 @@
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span>
                         </div>
+                    </div id="work"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
@@ -121,7 +122,7 @@
                     <h4 class="modal-title">Job Available</h4>
                 </div>
                 <div class="modal-body">
-                    <h2>Profile</h2>
+                    <h2 id="helperName"></h2>
 
                     <div>
                         <img src="images/happy-old-man.jpg" style="border-radius: 50%; height: 150px; width: 150px;">
@@ -134,6 +135,9 @@
                         <span class="fa fa-star"></span>
                     </div>
                     <div><label id="minutes">00</label>:<label id="seconds">00</label></div>
+                    <div>$<label id="money">0.00</label></div>
+                    <h3 id="jobHead"></h3>
+                    <p id="jobDesc"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">End This Job</button>
@@ -224,49 +228,62 @@
         $('#cmn-toggle-1').change(
                 function(){
                     if ($(this).is(':checked')) {
-                        axios.post('/helper/available/1')
+                        axios.post('/helper/1')
                     }else{
-                        axios.post('/helper/available/0')
+                        axios.post('/helper/0')
                     }
                 });
+    let jobski;
 
-        $('#myModal').modal('show');
-
+    socket.on("newJobski", (job, name) => {
+        jobski = job;
+        $('#myModal').modal('show')
+        $('#helpeeName').html(name)
+        $('#jobHead').html(job.subject)
+        $('#helperDesc').html(job.description)
+    })
+    // socket.on("newJobski", () => console.log('yeah'))
 
     $("#accept").click(function(){
-        setTimeout(function(){
+        socket.emit('accepted', jobski)
+        socket.on('beginJob', (price) => {
+
             $("#myModal1").modal({
-                backdrop: 'static',
-                keyboard: false
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                var minutesLabel = document.getElementById("minutes");
+                var secondsLabel = document.getElementById("seconds");
+                var moneyLabel = document.getElementById("money");
+
+                var totalSeconds = 0;
+                var totalMoney = 0;
+                setInterval(setTime, 1000);
+
+                function setTime() {
+                    ++totalSeconds;
+                    totalMoney += (1 / 360) * price
+
+                    secondsLabel.innerHTML = pad(totalSeconds % 60);
+                    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+                    moneyLabel.innerHTML = totalMoney % 0.01
+
+                }
+
+                function pad(val) {
+                    var valString = val + "";
+                    if (valString.length < 2) {
+                        return "0" + valString;
+                    }
+                    else {
+                        return valString;
+                    }
+                }
+
             });
-            var minutesLabel = document.getElementById("minutes");
-            var secondsLabel = document.getElementById("seconds");
-            var totalSeconds = 0;
-            setInterval(setTime, 1000);
+            
+        })
 
-            function setTime()
-            {
-                ++totalSeconds;
-                secondsLabel.innerHTML = pad(totalSeconds%60);
-                minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-            }
-
-            function pad(val)
-            {
-                var valString = val + "";
-                if(valString.length < 2)
-                {
-                    return "0" + valString;
-                }
-                else
-                {
-                    return valString;
-                }
-            }
-
-
-        }, 1000);
-    });
     });
 
 

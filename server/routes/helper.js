@@ -18,7 +18,26 @@ router.get('/', (req, res, next) => {
     else res.redirect('/')
 })
 
-router.get('/available/:lat/:long', (req, res, next) => {
+router.get('/min/:lat/:long', (req, res, next) => {
+    console.log('hit')
+    Helper.findAll({
+        where: {
+            availability: true,
+        }
+    })
+    .then(helpers => {
+        let min = helpers[0];
+        for(let i in helpers){
+            let dist = checkDist(req.params.lat, req.params.long, i.location[0], i.location[1]);
+            if(dist < min){
+                min = dist;
+            }
+        }
+        res.send(min);
+    })
+})
+
+router.get('/all/:lat/:long', (req, res, next) => {
     console.log('hit')
     Helper.findAll({
         where: {
@@ -35,7 +54,7 @@ router.get('/available/:lat/:long', (req, res, next) => {
     })
 })
 
-router.post('/available/:val', (req, res, next) => {
+router.post('/:val', (req, res, next) => {
     console.log('hitski')
     Helper.findOne({
         where: {

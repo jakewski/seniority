@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('./_db');
 
 const Jobs = db.define('jobs', {
-    name: {
+    subject: {
        type: Sequelize.STRING,
        allowNull: false,
     },

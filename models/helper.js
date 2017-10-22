@@ -36,6 +36,7 @@ const Helper = db.define('helper', {
     },
     price: {
         type: Sequelize.FLOAT,
+        defaultValue: 9.50,
     },
     photo: {
         //url or path name?
