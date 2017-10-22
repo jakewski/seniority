@@ -112,27 +112,27 @@ const helpers = [
 
 const jobs = [
     {
-        name: 'Mow Lawn',
+        subject: 'Mow Lawn',
         description: 'looking for someone to mow a small lawn (1/4 acre)',
         helpeeId: 1,
     },
     {
-        name: 'Clean Gutters',
+        subject: 'Clean Gutters',
         description: 'looking for someone to clean the leaves out of my gutters',
         helpeeId: 1,
     },
     {
-        name: 'Clean Garage',
+        subject: 'Clean Garage',
         description: 'need someone strong to lift the heavy boxes in my garage',
         helpeeId: 2,
     },
     {
-        name: 'Gardening Help',
+        subject: 'Gardening Help',
         description: 'need someone with gardening experience to help with tricky weeds',
         helpeeId: 3,
     },
     {
-        name: 'Carpet Mess',
+        subject: 'Carpet Mess',
         description: 'spilt wine on carpet, need help scrubbing out the stain',
         helpeeId: 4,
     },
