@@ -40,6 +40,7 @@
                 <span class="icon-bar"></span>
             </button>
                 <a class="navbar-brand" href="register">Seniority</a>
+                <a id="this_user" style="font-size: 18px;" class="navbar-brand">fuck you</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
 
@@ -47,7 +48,8 @@
                     <li><a href="/register">home</a></li>
                     <li><a href="/map">Find Help</a></li>
                     <li><a href="/help">Help</a></li>
-                    <li><a></a></li>
+                    <li><a id="login_status" onclick="logMeOut()"></a></li>
+                    <li id=><a></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right socials">
                     <li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -201,7 +203,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 margin-b-30">
-                    <h2>Seniority</h2>
+                    <a class="navbar-brand" href="register">Seniority</a>
+                    <a id="this_user" style="font-size: 18px;" class="navbar-brand"></a>
                     <p>
                         A simple connection between the ones who need help, and that ones that want to help.
                     </p>
@@ -275,17 +278,18 @@
     <script>
         var socket = io()
           window.onload = function() {
-              axios.get('/auth/me', function(req, res, next){
-                  let user = res.data;
-                  return user;
-              })
-                      .then(user =>
-              {
-                  if(!user)
-                      $("#loginLogout").html('Login');
-                  else
-                      $("#loginLogout").html('Logout');
-              });
+            axios.get('/auth/me', (req, res, next) => (res.data))
+                  .then(user => {
+                      if (user.data.name) {
+                          console.log(user.data.name);
+                          $("#this_user").html('Welcome, ' + user.data.name);
+                          $("#login_status").html("Logout");
+                      }
+                      else {
+                          $("#this_user").html('You are not logged in bitch');
+                          $("#login_status").html("Login");
+                      }
+                  });
           };
         function Helper() {
             let e = $("#email").val();

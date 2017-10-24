@@ -37,7 +37,7 @@ $(document).ready(function () {
                     totalMoney += (1 / 360) * price
                     secondsLabel.innerHTML = pad(totalSeconds % 60);
                     minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-                    moneyLabel.innerHTML = totalMoney % 0.01
+                    moneyLabel.innerHTML = totalMoney.toFixed(2)
 
                 }
 

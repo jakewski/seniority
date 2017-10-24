@@ -44,7 +44,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Seniority</a>
+            <a class="navbar-brand" href="register">Seniority</a>
+            <a id="this_user" style="font-size: 18px;" class="navbar-brand"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
@@ -52,6 +53,7 @@
                 <li><a href="/register">home</a></li>
                 <li><a href="/map">Find Help</a></li>
                 <li><a href="/help">Help</a></li>
+                <li><a id="login_status" onclick="logMeOut()"></a></li>
                 <li><a></a></li>
 
 
@@ -233,56 +235,69 @@
                         axios.post('/helper/0')
                     }
                 });
-    let jobski;
 
-    socket.on("newJobski", (job, name) => {
-        jobski = job;
-        $('#myModal').modal('show')
-        $('#helpeeName').html(name)
-        $('#jobHead').html(job.subject)
-        $('#helperDesc').html(job.description)
-    })
-    // socket.on("newJobski", () => console.log('yeah'))
-
-    $("#accept").click(function(){
-        socket.emit('accepted', jobski)
-        socket.on('beginJob', (price) => {
-
-            $("#myModal1").modal({
-                    backdrop: 'static',
-                    keyboard: false
-                });
-                var minutesLabel = document.getElementById("minutes");
-                var secondsLabel = document.getElementById("seconds");
-                var moneyLabel = document.getElementById("money");
-
-                var totalSeconds = 0;
-                var totalMoney = 0;
-                setInterval(setTime, 1000);
-
-                function setTime() {
-                    ++totalSeconds;
-                    totalMoney += (1 / 360) * price
-
-                    secondsLabel.innerHTML = pad(totalSeconds % 60);
-                    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-                    moneyLabel.innerHTML = totalMoney % 0.01
-
+        axios.get('/auth/me', (req, res, next) => (res.data))
+            .then(user => {
+                if (user.data.name) {
+                    console.log(user.data.name);
+                    $("#this_user").html('Welcome, ' + user.data.name);
+                    $("#login_status").html("Logout");
                 }
-
-                function pad(val) {
-                    var valString = val + "";
-                    if (valString.length < 2) {
-                        return "0" + valString;
-                    }
-                    else {
-                        return valString;
-                    }
+                else {
+                    $("#this_user").html('You are not logged in bitch');
+                    $("#login_status").html("Login");
                 }
-
             });
-            
+        let jobski;
+
+        socket.on("newJobski", (job, name) => {
+            jobski = job;
+            $('#myModal').modal('show')
+            $('#helpeeName').html(name)
+            $('#jobHead').html(job.subject)
+            $('#helperDesc').html(job.description)
         })
+        // socket.on("newJobski", () => console.log('yeah'))
+
+        $("#accept").click(function(){
+            socket.emit('accepted', jobski)
+            socket.on('beginJob', (price) => {
+
+                $("#myModal1").modal({
+                        backdrop: 'static',
+                        keyboard: false
+                    });
+                    var minutesLabel = document.getElementById("minutes");
+                    var secondsLabel = document.getElementById("seconds");
+                    var moneyLabel = document.getElementById("money");
+
+                    var totalSeconds = 0;
+                    var totalMoney = 0;
+                    setInterval(setTime, 1000);
+
+                    function setTime() {
+                        ++totalSeconds;
+                        totalMoney += (1 / 360) * price
+
+                        secondsLabel.innerHTML = pad(totalSeconds % 60);
+                        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+                        moneyLabel.innerHTML = totalMoney.toFixed(2)
+
+                    }
+
+                    function pad(val) {
+                        var valString = val + "";
+                        if (valString.length < 2) {
+                            return "0" + valString;
+                        }
+                        else {
+                            return valString;
+                        }
+                    }
+
+                });
+                
+            })
 
     });
 

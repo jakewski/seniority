@@ -30,11 +30,13 @@ router.post("/signup/:flag", (req, res, next) => {
 });
 
 router.post("/logout", (req, res) => {
+    console.log(req.user);
     req.logout();
     res.sendStatus(200);
 });
 
 router.get("/me", (req, res) => {
+  req.user ? console.log(req.user.name) : null;
   res.json(req.user);
 });
 
