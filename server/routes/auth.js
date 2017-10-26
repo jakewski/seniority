@@ -19,6 +19,7 @@ router.post("/login/:flag", (req, res, next) => {
 
 router.post("/signup/:flag", (req, res, next) => {
   const User = req.params.flag === 'help' ? Helper : Helpee;
+  console.log(req.params.flag);
   User.create(req.body)
     .then(user => {
       req.login(user, err => (err ? next(err) : res.json(user)));

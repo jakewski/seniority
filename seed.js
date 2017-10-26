@@ -71,8 +71,8 @@ const helpers = [
     },
         {
         name: 'Artur Byra2',
-        email: 'artur@gmail.com',
-        password: 'jakubisstilldope',
+        email: 'artur2@gmail.com',
+        password: 'jakubisstilldope2',
         availability: true,
         skills: ['lifting heavy stuff', 'mowing lawns'],
         location: [39.963840, -76.728475],
@@ -84,8 +84,8 @@ const helpers = [
     },
         {
         name: 'Artur Byra3',
-        email: 'artur@gmail.com',
-        password: 'jakubisstilldope',
+        email: 'artur3@gmail.com',
+        password: 'jakubisstilldope3',
         availability: true,
         skills: ['lifting heavy stuff', 'mowing lawns'],
         location: [39.962896, -76.729406],
@@ -97,8 +97,8 @@ const helpers = [
     },
         {
         name: 'Artur Byra4',
-        email: 'artur@gmail.com',
-        password: 'jakubisstilldope',
+        email: 'artur4@gmail.com',
+        password: 'jakubisstilldope4',
         availability: true,
         skills: ['lifting heavy stuff', 'mowing lawns'],
         location: [39.962679,  -76.727986],
